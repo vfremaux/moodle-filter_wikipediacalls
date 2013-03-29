@@ -24,7 +24,7 @@ function wikipediacalls_filter($courseid, $text) {
 	    // get word before [WP] marker
        // replace word and marker by wikipedia link (language aware) 
     $lang = substr(@$USER->lang, 0, 2);
-    if ($lang == '') $lang = "fr";
+    if ($lang == '') $lang = $CFG->lang;
     
     $defaultwikibase = str_replace("<%%LANG%%>", $lang, $CFG->filter_wikibaseurl);
 	
@@ -43,7 +43,7 @@ function wikipediacalls_filter($courseid, $text) {
 	 	  }
 	 	  preg_match_all("/([^ \.\'`\"\(\)\[\]<>;:]+)\[WP\|([^|]*?)\]/", $text, $matches, PREG_PATTERN_ORDER);
 	 	  foreach($matches[2] as $aMatch){
-	 	  	 $WPKeys[urlencode($aMatch)] = $defaultwikibase . str_replace("+", "_", urlencode($aMatch));
+	 	  	 $WPKeys[urlencode($aMatch)] = $defaultwikibase . str_replace('+', '_', urlencode($aMatch));
 	 	  }
 	 }
 
@@ -76,14 +76,8 @@ function wikipediacalls_filter($courseid, $text) {
 	 }
 
     // special views for developper
-    if (isadmin()){
+    if (has_capability('moodle/site:doanything', get_context_instance(CONTEXT_SYSTEM)) && $CFG->debug == DEBUG_DEVELOPER){
 	     // $CFG->currenttextiscacheable = false; // huge overhead in computing time
-		 if (preg_match("/\[MOODLE_CFG\]/", $text)){
-		 	print_r($CFG);
-		 }
-		 if (preg_match("/\[MOODLE_USER\]/", $text)){
-		 	print_r($USER);
-		 }
 		 if (preg_match("/\[MOODLE_SESSION\]/", $text)){
 		 	print_r($_SESSION);
 		 }

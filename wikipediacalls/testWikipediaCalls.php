@@ -95,7 +95,6 @@ function launchHttpRequest(url, keyword){
    xmlHttp.onreadystatechange = function(){
 			if ((xmlHttp.readyState == 4) || (xmlHttp.readyState == 'complete')){
 			   var response = xmlHttp.responseText;
-			   // alert(response);
 			   re1 = new RegExp("page-Special_Badtitle");
 			   re2 = new RegExp("noarticletext");
 			   re3 = new RegExp("Disambig.svg");
@@ -103,8 +102,7 @@ function launchHttpRequest(url, keyword){
 			   	if(!response.match(re3)){
 			   		markerObj.innerHTML = "<?php echo get_string('okstatus', 'filter_wikipediacalls') ?>";
 			   		markerObj.className = "OK";
-			   	}
-			   	else{
+			   	} else {
 			   		markerObj.innerHTML = "<?php echo get_string('ambigstatus', 'filter_wikipediacalls') ?>";
 			   		markerObj.className = "AMBIG";
 			   	}
