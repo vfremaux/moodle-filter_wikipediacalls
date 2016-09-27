@@ -1,0 +1,29 @@
+<?php
+    // check the default settings
+    require_once "defaultsettings.php";
+    
+    wikipediacalls_defaultsettings();
+
+    // get strings
+    $txt = new Object;
+    $txt->wikipediacallsshowkeys = get_string( 'wikipediacalls_showkeys', 'filter_wikipediacalls' );
+    $txt->wikibaseurl = get_string( 'wikibaseurl','filter_wikipediacalls' );
+    $txt->yes = get_string( 'yes' );
+    $txt->no = get_string( 'no' );
+
+    $yesno = array( $txt->no, $txt->yes );
+?>
+
+<table cellpadding="9" cellspacing="0">
+    <tr valign="top">
+        <td align="right"><?php echo $txt->wikipediacallsshowkeys ?></td>
+        <td><?php choose_from_menu( $yesno,'filter_wikipediacalls_showkeys',
+             @$CFG->filter_wikipediacalls_showkeys ); ?></td> 
+    </tr>
+    <tr valign="top">
+        <td align="right"><?php echo $txt->wikibaseurl ?></td>
+        <td>
+            <input type="text" name="filter_wikibaseurl" value="<?php echo @$CFG->filter_wikibaseurl ?>" size="40" />
+        </td> 
+    </tr>
+</table>
