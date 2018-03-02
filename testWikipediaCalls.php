@@ -56,7 +56,7 @@ if (count($wikikeys) == 0){
     $table->width = '90%';
     $table->size = array('40%', '60%');
     foreach(array_keys($wikikeys) as $k) {
-        $link = $wikikeys[$k].' - <a href="'.$wikikeys[$k].'" target="_blank" title="'.get_string('seewppage', 'filter_wikipediacalls').'"><img src="'.$OUTPUT->pix_url('t/hide').'"></a>';
+        $link = $wikikeys[$k].' - <a href="'.$wikikeys[$k].'" target="_blank" title="'.get_string('seewppage', 'filter_wikipediacalls').'">'.$OUTPUT->pix_icon('t/hide').'</a>';
         $state = '<span id="span_'.$k.'" class="wikipediacalls-UNCHECKED">'.get_string('uncheckedstatus', 'filter_wikipediacalls').'</span>';
         $table->data[] = array($link, $state);
         $jsarray[] = " '$k'";  
