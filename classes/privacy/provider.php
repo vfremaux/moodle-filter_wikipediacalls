@@ -14,23 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Version details.
- *
- * @package     filter_wikipediacalls
- * @category    filter
- * @author      Valery Fremaux <valery.fremaux@gmail.com>
- * @copyright   2006 onwards Valery Fremaux (http://www.mylearningfactory.com)
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+namespace filter_wikipediacalls\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2013010100;        // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2018042700;        // Requires this Moodle version.
-$plugin->component = 'filter_wikipediacalls'; // Full name of the plugin (used for diagnostics).
-$plugin->release = "3.5.0 (build 2013010100)";
-$plugin->maturity = MATURITY_STABLE;
-
-// Non moodle attributes.
-$plugin->codeincrement = '3.5.0000';
+class provider implements \core_privacy\local\metadata\null_provider {
+}
