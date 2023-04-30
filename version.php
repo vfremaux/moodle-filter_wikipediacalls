@@ -27,10 +27,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2013010100;        // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2018112800;        // Requires this Moodle version.
+$plugin->requires  = 2020061500;        // Requires this Moodle version.
 $plugin->component = 'filter_wikipediacalls'; // Full name of the plugin (used for diagnostics).
-$plugin->release = "3.6.0 (build 2013010100)";
+$plugin->release = "3.9.0 (build 2013010100)";
 $plugin->maturity = MATURITY_STABLE;
+$plugin->supported = [39,311];
 
 // Non moodle attributes.
-$plugin->codeincrement = '3.6.0000';
+$plugin->codeincrement = '3.9.0000';
